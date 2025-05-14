@@ -1,0 +1,16 @@
+def build_cnn():
+    model = Sequential([
+        Conv2D(32, (3, 3), activation='relu', input_shape=(100, 100, 1)),
+        MaxPooling2D(2, 2),
+        Conv2D(64, (3, 3), activation='relu'),
+        MaxPooling2D(2, 2),
+        Flatten(),
+        Dense(128, activation='relu'),
+        Dropout(0.5),
+        Dense(len(np.unique(y_encoded)), activation='softmax')
+    ])
+    model.compile(optimizer=Adam(), loss='sparse_categorical_crossentropy', metrics=['accuracy'])
+    return model
+
+cnn_model = build_cnn()
+history = cnn_model.fit(X_train, y_train, validation_data=(X_val, y_val), epochs=10, batch_size=32)
