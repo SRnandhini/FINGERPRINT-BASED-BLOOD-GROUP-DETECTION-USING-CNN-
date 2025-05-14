@@ -1,0 +1,8 @@
+# Flatten for KNN input
+X_knn = X.reshape(-1, 100 * 100)
+
+X_train_knn, X_val_knn, y_train_knn, y_val_knn = train_test_split(X_knn, y_encoded, test_size=0.2, random_state=42)
+
+knn = KNeighborsClassifier(n_neighbors=3)
+knn.fit(X_train_knn, y_train_knn)
+knn_pred = knn.predict(X_val_knn)
