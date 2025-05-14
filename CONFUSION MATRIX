@@ -1,0 +1,8 @@
+from sklearn.metrics import ConfusionMatrixDisplay
+
+cnn_pred = np.argmax(cnn_model.predict(X_val), axis=1)
+cm = confusion_matrix(y_val, cnn_pred)
+disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=encoder.classes_)
+disp.plot(cmap='Blues', xticks_rotation=45)
+plt.title("Confusion Matrix - CNN")
+plt.show()
