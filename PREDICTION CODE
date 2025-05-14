@@ -1,0 +1,23 @@
+# Function to predict blood group from a fingerprint image using CNN model
+def predict_blood_group(img_path, model, encoder):
+    from tensorflow.keras.preprocessing import image
+
+    # Load and preprocess the image
+    img = cv2.imread(img_path, cv2.IMREAD_GRAYSCALE)
+    img = cv2.resize(img, image_size)
+    img = img / 255.0
+    img = img.reshape(1, 100, 100, 1)
+
+    # Predict
+    prediction = model.predict(img)
+    predicted_class = np.argmax(prediction)
+    blood_group = encoder.inverse_transform([predicted_class])[0]
+
+    confidence = np.max(prediction) * 100
+    print(f"Predicted Blood Group: {blood_group} (Confidence: {confidence:.2f}%)")
+    return blood_group, confidence
+
+# Example usage
+# Replace this with your own test image path inside the Google Drive or upload
+test_image_path = '/content/drive/MyDrive/fingerprint_dataset /A-/cluster_1_1.BMP'  # example path
+predict_blood_group(test_image_path, cnn_model, encoder)
