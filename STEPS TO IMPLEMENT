@@ -1,0 +1,19 @@
+Step 1: Set Up Google Cloud
+Create a Google Cloud account
+👉 https://console.cloud.google.com/
+
+Create a new project
+
+Click on the project dropdown > "New Project"
+
+Name it something like: FingerprintBloodGroupDetection
+
+Enable Cloud Storage & AI Services
+
+Go to "APIs & Services" > Enable APIs:
+
+Enable Cloud Storage API
+
+Enable AI Platform / Vertex AI (if needed)
+STEP 2 :Upload Dataset to your google drive 
+STEP 3 :Mount your Google Drive (if needed):
