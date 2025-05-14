@@ -1,0 +1,19 @@
+# Step 1: Mount Google Drive
+from google.colab import drive
+drive.mount('/content/drive')
+
+# Step 2: Import libraries
+import os
+import numpy as np
+import matplotlib.pyplot as plt
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, Dropout
+from tensorflow.keras.optimizers import Adam
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
+from sklearn.model_selection import train_test_split
+from tensorflow.keras.models import load_model
+import cv2
+from tqdm import tqdm
+import seaborn as sns
